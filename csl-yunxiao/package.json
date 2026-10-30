@@ -1,0 +1,65 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "csl-yunxiao",
+  "title": "YunXiao",
+  "description": "查看我的云效需求、任务和 Bug，支持状态筛选、搜索、本地缓存和打开详情。",
+  "icon": "extension-icon.png",
+  "author": "shilin_cai",
+  "platforms": [
+    "macOS"
+  ],
+  "categories": [
+    "Developer Tools"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "my-work-items",
+      "title": "My Work Items",
+      "subtitle": "YunXiao",
+      "description": "合并查看我负责及我参与的需求和分配给我的任务。",
+      "mode": "view"
+    },
+    {
+      "name": "my-bugs",
+      "title": "My Bugs",
+      "subtitle": "YunXiao",
+      "description": "查看全部分配给我的 Bug，支持状态筛选、搜索和缓存。",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "token",
+      "title": "YunXiao Token",
+      "description": "可选，支持 Bearer 前缀。留空时优先使用 YUNXIAO_TOKEN，否则自动读取本机 Chrome/Chromium 云效登录。仅发送到 https://one.in.zhihu.com。",
+      "type": "password",
+      "required": false
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^2.9.0",
+    "@raycast/utils": "^2.2.7",
+    "classic-level": "^3.0.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.2.0",
+    "@types/node": "22.19.17",
+    "@types/react": "19.0.10",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.5.0",
+    "prettier": "^3.8.5",
+    "typescript": "^6.0.3"
+  },
+  "scripts": {
+    "prepare-native": "node scripts/prepare-native.mjs",
+    "postinstall": "npm run prepare-native",
+    "prebuild": "npm run prepare-native",
+    "predev": "npm run prepare-native",
+    "build": "ray build",
+    "dev": "ray develop",
+    "check": "tsc --noEmit",
+    "lint": "ray lint",
+    "fix-lint": "ray lint --fix"
+  }
+}

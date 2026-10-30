@@ -1,0 +1,4 @@
+/node_modules
+/assets/native-level
+raycast-env.d.ts
+.DS_Store
