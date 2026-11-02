@@ -8,6 +8,7 @@ export interface GitLabPreferences {
 export interface MergeRequest {
   id: number;
   iid: number;
+  project_id?: number;
   title: string;
   state: string;
   web_url: string;
@@ -17,7 +18,7 @@ export interface MergeRequest {
 
 const PAGE_SIZE = 50;
 
-function getApiUrl(baseUrl: string) {
+function getApiUrl(baseUrl: string, endpoint = "merge_requests") {
   let url: URL;
   try {
     url = new URL(baseUrl.trim());
@@ -29,7 +30,7 @@ function getApiUrl(baseUrl: string) {
     throw new Error("GitLab Base URL 必须使用 HTTPS，且不能包含用户名、密码、查询参数或片段。");
   }
 
-  url.pathname = `${url.pathname.replace(/\/+$/, "").replace(/\/api\/v4$/, "")}/api/v4/merge_requests`;
+  url.pathname = `${url.pathname.replace(/\/+$/, "").replace(/\/api\/v4$/, "")}/api/v4/${endpoint}`;
   return url;
 }
 
@@ -39,6 +40,7 @@ function isMergeRequest(value: unknown): value is MergeRequest {
   if (
     typeof mr.id !== "number" ||
     typeof mr.iid !== "number" ||
+    (mr.project_id !== undefined && !isPositiveId(mr.project_id)) ||
     typeof mr.title !== "string" ||
     typeof mr.state !== "string" ||
     typeof mr.web_url !== "string" ||
@@ -57,6 +59,99 @@ function isMergeRequest(value: unknown): value is MergeRequest {
   } catch {
     return false;
   }
+}
+
+function isPositiveId(value: unknown): value is number {
+  return typeof value === "number" && Number.isSafeInteger(value) && value > 0;
+}
+
+type Platform = "ios" | "android";
+
+function platformFromMatches(matches: Iterable<RegExpMatchArray>): Platform | "ambiguous" | undefined {
+  const platforms = new Set([...matches].map((match) => match[1].toLowerCase() as Platform));
+  return platforms.size > 1 ? "ambiguous" : platforms.values().next().value;
+}
+
+export function getMergeRequestPlatform(
+  mr: Pick<MergeRequest, "references" | "web_url" | "title">,
+  baseUrl: string,
+): Platform | undefined {
+  let projectPath = "";
+  try {
+    const webUrl = new URL(mr.web_url);
+    const apiUrl = getApiUrl(baseUrl);
+    const prefix = apiUrl.pathname.replace(/\/api\/v4\/merge_requests$/, "");
+    if (webUrl.origin === apiUrl.origin && webUrl.pathname.startsWith(`${prefix}/`)) {
+      projectPath = decodeURIComponent(webUrl.pathname.slice(prefix.length)).replace(
+        /\/(?:-\/)?merge_requests\/\d+(?:\/.*)?$/,
+        "",
+      );
+    }
+  } catch {
+    // References/title still provide a safe presentation-only fallback.
+  }
+  for (const path of [mr.references?.full?.replace(/!\d+$/, "") ?? "", projectPath]) {
+    const platform = platformFromMatches(path.matchAll(/(?:^|[^a-z0-9])(ios|android)(?=$|[^a-z0-9])/gi));
+    if (platform) return platform === "ambiguous" ? undefined : platform;
+  }
+  const platform = platformFromMatches(mr.title.matchAll(/\[(ios|android)(?=[\]\s])/gi));
+  return platform === "ambiguous" ? undefined : platform;
+}
+
+// CI enriches loaded rows separately; it must not block MR list pagination or overwhelm the API.
+let activePipelineRequests = 0;
+const pipelineWaiters: (() => void)[] = [];
+
+async function withPipelineSlot(request: () => Promise<string | undefined>): Promise<string | undefined> {
+  await new Promise<void>((resolve) => {
+    const start = () => {
+      activePipelineRequests++;
+      resolve();
+    };
+    if (activePipelineRequests < 4) start();
+    else pipelineWaiters.push(start);
+  });
+  try {
+    return await request();
+  } finally {
+    activePipelineRequests--;
+    pipelineWaiters.shift()?.();
+  }
+}
+
+export async function fetchMergeRequestPipelineStatus(
+  preferences: GitLabPreferences,
+  mr: Pick<MergeRequest, "id" | "iid" | "project_id">,
+  signal?: AbortSignal,
+): Promise<string | undefined> {
+  if (signal?.aborted || !isPositiveId(mr.project_id) || !isPositiveId(mr.iid) || !isPositiveId(mr.id)) return;
+  return withPipelineSlot(async () => {
+    try {
+      signal?.throwIfAborted();
+      const token = preferences.personalAccessToken.trim();
+      if (!token) return;
+      const url = getApiUrl(preferences.baseUrl, `projects/${mr.project_id}/merge_requests/${mr.iid}`);
+      const response = await fetch(url, {
+        method: "GET",
+        headers: { "PRIVATE-TOKEN": token, Accept: "application/json" },
+        redirect: "error",
+        signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(10_000)]) : AbortSignal.timeout(10_000),
+      });
+      if (!response.ok) return;
+      const detail: unknown = await response.json();
+      if (typeof detail !== "object" || detail === null || Array.isArray(detail)) return;
+      const value = detail as Record<string, unknown>;
+      if (value.id !== mr.id || value.iid !== mr.iid || value.project_id !== mr.project_id) return;
+      // An explicit null head_pipeline means no current pipeline; never replace it with an older one.
+      const pipeline = Object.hasOwn(value, "head_pipeline") ? value.head_pipeline : value.pipeline;
+      if (typeof pipeline !== "object" || pipeline === null || Array.isArray(pipeline)) return;
+      const status = (pipeline as Record<string, unknown>).status;
+      return typeof status === "string" ? status : undefined;
+    } catch {
+      // No access, cancellation, invalid responses and network failures mean unknown, not failed CI.
+      return undefined;
+    }
+  });
 }
 
 export async function fetchMergeRequests(
