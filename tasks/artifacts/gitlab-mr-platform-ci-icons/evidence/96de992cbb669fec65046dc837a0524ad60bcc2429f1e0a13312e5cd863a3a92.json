@@ -1,0 +1,107 @@
+{
+  "schema": "task-snapshot/v1",
+  "taskId": "gitlab-mr-platform-ci-icons",
+  "files": [
+    {
+      "path": "csl-gitlab/README.md",
+      "sha256": "d1871f7cc1e89f5c92abda11e083e5f03045b7ba1b283eed82143738fe586b32",
+      "git": {
+        "head": {
+          "mode": "100644",
+          "object": "a3414c2a1018d84ac3d209ccb55071732f26c473"
+        },
+        "index": [
+          {
+            "mode": "100644",
+            "object": "a3414c2a1018d84ac3d209ccb55071732f26c473",
+            "stage": 0
+          }
+        ]
+      }
+    },
+    {
+      "path": "csl-gitlab/assets/android.svg",
+      "sha256": "1862ad78b96e213c0ebd7366bdc4164c7d96b77ccd144fa90297bfe659165cea",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-gitlab/assets/ios.svg",
+      "sha256": "b2ed11b0a69909594260c2b01f0174b5fcc57ee685061597e5cfa7ce8a42c880",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-gitlab/package-lock.json",
+      "sha256": "d538a53dbc65288b40b327581e4e1aab080408ed598d2322a1991d41712cc1d9",
+      "git": {
+        "head": {
+          "mode": "100644",
+          "object": "447e302857439d3bd4e88766a64c3d4231d968b6"
+        },
+        "index": [
+          {
+            "mode": "100644",
+            "object": "447e302857439d3bd4e88766a64c3d4231d968b6",
+            "stage": 0
+          }
+        ]
+      }
+    },
+    {
+      "path": "csl-gitlab/package.json",
+      "sha256": "2741b1b95c52dd0c763bbc7a9a69bc95dc4edc05b6f99e3ecdc840c59cf0b8ee",
+      "git": {
+        "head": {
+          "mode": "100644",
+          "object": "ed08b533f1e51861e21704b7d52ec4267d32a253"
+        },
+        "index": [
+          {
+            "mode": "100644",
+            "object": "ed08b533f1e51861e21704b7d52ec4267d32a253",
+            "stage": 0
+          }
+        ]
+      }
+    },
+    {
+      "path": "csl-gitlab/src/gitlab.tsx",
+      "sha256": "8b32fe0309a0f1aec0397426cca83a9e82b981ee517d30618c842a2a08fa3218",
+      "git": {
+        "head": {
+          "mode": "100644",
+          "object": "52b6be19b099cf3442da20a27326a484c03391ac"
+        },
+        "index": [
+          {
+            "mode": "100644",
+            "object": "52b6be19b099cf3442da20a27326a484c03391ac",
+            "stage": 0
+          }
+        ]
+      }
+    },
+    {
+      "path": "csl-gitlab/src/lib/gitlab.ts",
+      "sha256": "fc465b03c59da47dbb48086e35a83cda3d8f9c9a325db8de01ba70f9dc83930a",
+      "git": {
+        "head": {
+          "mode": "100644",
+          "object": "d64acedc181abf02db5393c7014a15d0d8b5ec14"
+        },
+        "index": [
+          {
+            "mode": "100644",
+            "object": "d64acedc181abf02db5393c7014a15d0d8b5ec14",
+            "stage": 0
+          }
+        ]
+      }
+    }
+  ]
+}

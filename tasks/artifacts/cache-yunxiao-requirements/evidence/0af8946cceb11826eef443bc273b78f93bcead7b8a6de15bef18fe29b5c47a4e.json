@@ -1,0 +1,46 @@
+{
+  "schema": "task-snapshot/v1",
+  "taskId": "cache-yunxiao-requirements",
+  "files": [
+    {
+      "path": "csl-yunxiao/README.md",
+      "sha256": "3efd3c1eea62ed0ceedeea76374604c0b9f704a2eb07abc27f6454e8ba809657",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/package-lock.json",
+      "sha256": "119a184ac630212b4a0a8237fe234dfb9e982a97f056df0f156cfd5d09240841",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/package.json",
+      "sha256": "686bbb77bd0aa5c963e73fb1717ed2c6facf04a2647c885a0451f84f2c862ce3",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/src/lib/yunxiao.ts",
+      "sha256": "cd804b39fc05b30d45c9103215fd6768652b98f7430f1274aaefba9b8728bc14",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/src/my-requirements.tsx",
+      "sha256": "50bd4dd7f49ef96927b2121fd67e52afa5d0fc42f1c0e0096819ecd873863b0e",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    }
+  ]
+}

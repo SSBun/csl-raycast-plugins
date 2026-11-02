@@ -1,0 +1,86 @@
+{
+  "schema": "task-snapshot/v1",
+  "taskId": "create-yunxiao-raycast-extension",
+  "files": [
+    {
+      "path": "csl-yunxiao/.gitignore",
+      "sha256": "f413d300dc9f722dd1f67ef99b50af2cc6adbf4f8eb637cf6851c5b67793dc1d",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/.prettierrc",
+      "sha256": "39131c6b9b2206e65a4693cca7c823a73464b69d2a3e0071211aef6bdaf17f54",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/README.md",
+      "sha256": "bc80b21167a9972c5870f78903bd6040f5dca447c62ac493ebc00b156d737cc6",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/assets/extension-icon.png",
+      "sha256": "8c8df67e7b60afc55eb41c8b6f7dc75a147e3d42da9f3dc94a2a9fa1f3d98221",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/eslint.config.mjs",
+      "sha256": "35f72c0501c7f3712967e3e830c3cd30855806b8c03ce9055ed7cfd30f3383a0",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/package-lock.json",
+      "sha256": "99d0ee66d3b2acabe06b88609f4272aa88f4c7ecd8a148bdadb11905d883d477",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/package.json",
+      "sha256": "9a652ace3bdc704fb827633782beafbcf0f6079140467fbf45d22cb325dba2ec",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/src/lib/yunxiao.ts",
+      "sha256": "64fd7571147a427720defd2a2395475bb7a852b469ba04fc3dd3aea9e143c6a1",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/src/my-requirements.tsx",
+      "sha256": "2200b9058424d2266d7bbe3238839d517226546dd5bc4d338c78012678c5d461",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/tsconfig.json",
+      "sha256": "abadf036d1354cc88b74acba9718c53236301e6958ca05d18ea4b22b900b9cdf",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    }
+  ]
+}

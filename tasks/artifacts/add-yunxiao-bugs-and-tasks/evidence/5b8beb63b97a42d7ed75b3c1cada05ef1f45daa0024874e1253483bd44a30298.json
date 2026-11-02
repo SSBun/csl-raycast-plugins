@@ -1,0 +1,62 @@
+{
+  "schema": "task-snapshot/v1",
+  "taskId": "add-yunxiao-bugs-and-tasks",
+  "files": [
+    {
+      "path": "csl-yunxiao/README.md",
+      "sha256": "930fb7247e30bb1a8b5876cab6ee9e9fbee8c405346c0f9e8b764cef8cb1ccca",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/package-lock.json",
+      "sha256": "119a184ac630212b4a0a8237fe234dfb9e982a97f056df0f156cfd5d09240841",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/package.json",
+      "sha256": "7bb06f0a93ea8205bc78f4500625849c3c127ca19afd2885d6d8e938ff8b7e81",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/src/components/work-items-list.tsx",
+      "sha256": "88cb88a9411bc47dedb7ca14a00365c0f48f8726c1101cd33fcfad077153d89c",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/src/lib/yunxiao.ts",
+      "sha256": "f5eb8fe45983f98a457422cab902e49a5f5a2e1540dc869d25272251737b9733",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/src/my-bugs.tsx",
+      "sha256": "85a817b355b14de026241d7e4c4d847293f61d610e013659b1e0d4700f0afcf6",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/src/my-work-items.tsx",
+      "sha256": "46ca7ad46fffffd1874395b574d0e4ca76d8f6a16486b78edecf04454c123d07",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    }
+  ]
+}

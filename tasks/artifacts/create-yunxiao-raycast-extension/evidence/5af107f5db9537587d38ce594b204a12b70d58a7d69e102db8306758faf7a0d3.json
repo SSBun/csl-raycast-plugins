@@ -1,0 +1,126 @@
+{
+  "schema": "task-snapshot/v1",
+  "taskId": "create-yunxiao-raycast-extension",
+  "files": [
+    {
+      "path": "csl-yunxiao/.gitignore",
+      "sha256": "a493a08bfe41cf82bda1cb59538272d639ea8815e24d739637ec54d13ae9be32",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/.prettierrc",
+      "sha256": "39131c6b9b2206e65a4693cca7c823a73464b69d2a3e0071211aef6bdaf17f54",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/README.md",
+      "sha256": "839439c2e07dd85d9092a3e1e6486e5535e9c7d0011afb562b55598b6a185d14",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/assets/extension-icon.png",
+      "sha256": "8c8df67e7b60afc55eb41c8b6f7dc75a147e3d42da9f3dc94a2a9fa1f3d98221",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/assets/native-level/LICENSES.txt",
+      "sha256": "087c1d84bbe2f9f0b787c10f261af5db6766a5804d695f1b6eccb9824f15445f",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/assets/native-level/classic-level.node",
+      "sha256": "e311fd4aadf58e151dcb19b0144fbbb468ef08fb73d77bca806e7320725ef26c",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/assets/native-level/index.cjs",
+      "sha256": "560f7696b5710210dd508d247625062e29a1e82b38dfe34d24f1875f2a377e79",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/eslint.config.mjs",
+      "sha256": "35f72c0501c7f3712967e3e830c3cd30855806b8c03ce9055ed7cfd30f3383a0",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/package-lock.json",
+      "sha256": "119a184ac630212b4a0a8237fe234dfb9e982a97f056df0f156cfd5d09240841",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/package.json",
+      "sha256": "686bbb77bd0aa5c963e73fb1717ed2c6facf04a2647c885a0451f84f2c862ce3",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/scripts/prepare-native.mjs",
+      "sha256": "55f957a3c652a989e23d36568786d350f5bad5efa3cdba172b01f3ef06f7790e",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/src/lib/chrome-token.ts",
+      "sha256": "95e09b14bb14148f2634cc5e95a3d4d0a25dabc4c5a464ac9d35fa5dc900975b",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/src/lib/yunxiao.ts",
+      "sha256": "6c27504f84e6d12297829482c50321c8cf6a97c7fab4a2bdf9efe027698750f0",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/src/my-requirements.tsx",
+      "sha256": "7918bba7e162b097050bc4457f91cd6eb958016275d7446a580748a36d0bf1bd",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    },
+    {
+      "path": "csl-yunxiao/tsconfig.json",
+      "sha256": "abadf036d1354cc88b74acba9718c53236301e6958ca05d18ea4b22b900b9cdf",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    }
+  ]
+}

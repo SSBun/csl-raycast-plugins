@@ -1,0 +1,14 @@
+{
+  "schema": "task-snapshot/v1",
+  "taskId": "color-yunxiao-status-tags",
+  "files": [
+    {
+      "path": "csl-yunxiao/src/my-requirements.tsx",
+      "sha256": "72a4bf93c7d95ee9679ca5017fb3b33e4ac4d14e7d8492768fcbed16b35d2304",
+      "git": {
+        "head": null,
+        "index": []
+      }
+    }
+  ]
+}
