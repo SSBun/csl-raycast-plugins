@@ -1,6 +1,6 @@
 # 任务索引
 
-- [提交并推送全部剩余本地记录](tasks/publish-local-task-records.md) — In Progress (2026-11-02 19:07)
+- [提交并推送全部剩余本地记录](tasks/publish-local-task-records.md) — Completed (2026-11-02 19:10)
 
 - [推送当前分支至远端](tasks/push-raycast-plugins.md) — Completed (2026-11-02 14:13)
 
